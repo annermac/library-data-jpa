@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список читателей</title>
+</head>
+<body>
+<h3>Читатели</h3>
+<div th:if="${people.isEmpty()}">Пока нет читателей</div>
+<div th:each="person: ${people}">
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getFio()+ ', ' + person.getBirthday()}"></a>
+</div>
+<br>
+<a href="/people/new">Создать читателя</a>
+</body>
+</html>
